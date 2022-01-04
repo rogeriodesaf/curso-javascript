@@ -15,3 +15,5 @@ function funcaoComParametro (texto){
 }
 
 funcaoComParametro('Este é o texto da função')
+
+const imprime2 = imprimeNoConsole();
