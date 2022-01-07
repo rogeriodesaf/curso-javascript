@@ -5,7 +5,7 @@ const nome = 'Rogério'  /*escopo global */
 function retornaNome() {
     const nome = 'Lohana'
     return function () {
-        return nome
+        return nome  
     };
 };
 
