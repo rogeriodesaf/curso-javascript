@@ -12,3 +12,7 @@ console.log(numeros.slice(0,1));
 console.log(numeros.slice(1,2));
 /* pega o elemento do indice 1 */
 
+console.log(numeros.slice(-2));
+console.log(numeros.slice(-3));
+console.log(numeros.slice(-0));
+console.log(numeros.slice(0,-3));
