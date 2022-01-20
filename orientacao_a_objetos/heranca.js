@@ -6,7 +6,7 @@ class Mamifero {
 
 class Cachorro extends Mamifero{
     constructor(patas,raca){
-        super(patas,patas)
+        super(patas, patas)
         this.raca = raca;
     }
 };
