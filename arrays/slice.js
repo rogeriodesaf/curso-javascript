@@ -16,3 +16,5 @@ console.log(numeros.slice(-2));
 console.log(numeros.slice(-3));
 console.log(numeros.slice(-0));
 console.log(numeros.slice(0,-3));
+console.log(numeros.slice(2,1));
+console.log(numeros)
