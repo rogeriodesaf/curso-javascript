@@ -9,3 +9,6 @@ console.log(tel.test('(83)99858-9499'))
 
 const cpf2 = /\d{3}.\d{3}.\d{3}-\d{2}/;
 console.log(cpf2.test('053.545.367-32'))
+
+const cpf3 = /\d{3}.\d{3}.\d{3}-\d{2}/;
+console.log(cpf3.test('053.545.674-32'));
