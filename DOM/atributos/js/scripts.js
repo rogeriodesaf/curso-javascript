@@ -5,3 +5,5 @@ console.log(a.getAttribute('href'));
 let link = 'https://facebook.com';
 
 a.setAttribute('href',link);
+
+console.log(a.getAttribute('href'));
