@@ -29,13 +29,9 @@ for (let i = 0; i < boxes.length; i++) {
                 player2++;
             }
             checkWinCondition();
-
         }
 
     });
-
-
-
 }
 
 function checkEl(player1, player2) {
@@ -72,9 +68,9 @@ function checkWinCondition() {
 
 
         if (b1Child == 'x' && b2Child == 'x' && b3Child == 'x') {
-            console.log('x venceu');
+            declareWinner('x');
         } else if (b1Child == 'o' && b2Child == 'o' && b3Child == 'o') {
-            console.log('o venceu');
+            declareWinner('o');
         }
     }
     
@@ -84,9 +80,9 @@ function checkWinCondition() {
         let b6Child = b6.childNodes[0].className;
 
         if (b4Child == 'x' && b5Child == 'x' && b6Child == 'x') {
-            console.log('x');
-        } else if (b4Child = '0' && b5Child == '0' && b6Child == '0') {
-            console.log('o venceu');
+            declareWinner('x');
+        } else if (b4Child == 'o' && b5Child == 'o' && b6Child == 'o') {
+            declareWinner('o');
         }
     }
     if (b7.childNodes.length > 0 && b8.childNodes.length > 0 && b9.childNodes.length > 0) {
@@ -95,9 +91,9 @@ function checkWinCondition() {
         let b9Child = b9.childNodes[0].className;
 
         if (b7Child = 'x' && b8Child == 'x' && b9Child == 'x') {
-            console.log('x')
-        } else if (b7Child = 'o' && b8Child == 'o' && b9Child == 'o') {
-            console.log('o venceu');
+            declareWinner('x');
+        } else if (b7Child == 'o' && b8Child == 'o' && b9Child == 'o') {
+            declareWinner('o');
         }
     }
     //vertical
@@ -107,9 +103,9 @@ function checkWinCondition() {
         let b7Child = b7.childNodes[0].className;
 
         if(b1Child == 'x' && b4Child == 'x' && b7Child == 'x'){
-            console.log('x venceu')
+            declareWinner('x');
         }else if(b1Child == 'x' && b4Child == 'x' && b7Child == 'x'){
-            console.log('o venceu');
+            declareWinner('o');
         }
     }
     if(b2.childNodes.length > 0 && b5.childNodes.length > 0 && b8.childNodes.length >0){
@@ -118,9 +114,9 @@ function checkWinCondition() {
         let b8Child = b8.childNodes[0].className;
 
         if(b2Child == 'x' && b5Child == 'x' && b8Child == 'x'){
-            console.log('x venceu')
+            declareWinner('x');
         }else if(b2Child == 'x' && b5Child == 'x' && b8Child == 'x'){
-            console.log('o venceu')
+            declareWinner('o');
         }
     }
     if(b3.childNodes.length > 0 && b6.childNodes.length > 0 && b9.childNodes.length >0){
@@ -129,9 +125,9 @@ function checkWinCondition() {
         let b9Child = b9.childNodes[0].className;
 
         if(b3Child == 'x' && b6Child == 'x' && b9Child == 'x'){
-            console.log('x venceu')
+            declareWinner('x');
         }else if(b3Child == 'x' && b6Child == 'x' && b9Child == 'x'){
-            console.log('o venceu')
+            declareWinner('o');
         }
     }
 
@@ -142,21 +138,64 @@ function checkWinCondition() {
         let b9Child = b9.childNodes[0].className;
 
         if(b1Child == 'x' && b5Child == 'x' && b9Child == 'x'){
-            console.log('x venceu')
+            declareWinner('x');
         }else if(b1Child == 'o' && b5Child == 'o' && b9Child == 'o'){
-            console.log('o venceu')
-        }
+             declareWinner('o');
     }
-    if(b7.childNodes.length > 0 && b5.childNodes.length > 0 && b9.childNodes.length >0){
+}
+    if(b7.childNodes.length > 0 && b5.childNodes.length > 0 && b3.childNodes.length >0){
         let b7Child = b7.childNodes[0].className;
         let b5Child = b5.childNodes[0].className;
         let b3Child = b3.childNodes[0].className;
 
         if(b7Child == 'x' && b5Child == 'x' && b3Child == 'x'){
-            console.log('x venceu')
+            declareWinner('x');
         }else if(b7Child == 'o' && b5Child == 'o' && b3Child == 'o'){
-            console.log('o venceu')
+            declareWinner('o');
         }
     }
+    let  counter = 0;
+
+    for(let i = 0 ; i < boxes.length; i++){
+        if(boxes[i].childNodes[0] != undefined){
+            counter ++; 
+        }
+    }
+    if(counter == 9){
+        declareWinner('deu velha')
+    }
+
 
 }
+
+function declareWinner (winner){
+    let scoreboardX = document.querySelector('#scoreboard-1');
+    let scoreboardO = document.querySelector('#scoreboard-2');
+    let msg = ' ';
+    
+    if(winner == 'x' ){
+        scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+        msg = 'o jogador 1 venceu';
+    }else if(winner == 'o'){
+        scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+        msg = 'o jogador 2 venceu';
+    } else {
+        msg = 'deu velha'
+    }
+    messageText.innerHTML = msg ;
+    messageContainer.classList.remove('hide');
+
+
+    setTimeout( function(){
+        messageContainer.classList.add('hide');
+    },3000)
+
+    player1 = 0;
+    player2 = 0;
+
+    let boxesToRemove = document.querySelectorAll('.box div');
+    for(let i = 0 ; i < boxesToRemove.length; i ++){
+        boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
+    }
+}
+
